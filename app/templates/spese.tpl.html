@@ -1,0 +1,12 @@
+<h2>Le mie spese</h2>
+<ul class="spese">
+  <li *ngFor="#spesa of spese" [class.selected]="spesa === selectedSpesa" (click)="onSelect(spesa)">
+    <span class="badge">{{spesa.id}}</span>{{spesa.importo | number:'1.2-2'}} {{spesa.descrizione}}
+  </li>
+</ul>
+<div *ngIf="selectedSpesa">
+  <h2>
+    Dettaglio "{{selectedSpesa.descrizione}}"
+  </h2>
+  <button (click)="gotoDetail()">Modifica dettagli</button>
+</div>
