@@ -1,9 +1,31 @@
 <h2>Le mie spese</h2>
-<ul class="spese">
-  <li *ngFor="#spesa of spese" [class.selected]="spesa === selectedSpesa" (click)="onSelect(spesa)">
-    <span class="badge">{{spesa.id}}</span>{{spesa.importo | number:'1.2-2'}} {{spesa.descrizione}}
-  </li>
-</ul>
+<table class="table-responsive table-sm table-striped table-bordered">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Data</th>
+      <th>Data reg.</th>
+      <th align="right">Importo</th>
+      <th align="right">Qtà</th>
+      <th>Descrizione</th>
+      <th>Ambito</th>
+      <th>Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="#spesa of spese" [class.table-info]="spesa === selectedSpesa" (click)="onSelect(spesa)">
+      <th>{{spesa.id}}</th>
+      <td>{{spesa.dataSpesa | date:'dd/MM/yy'}}</td>
+      <td>{{spesa.dataRiferimento | date:'dd/MM/yy'}}</td>
+      <td align="right">{{spesa.importo | number:'1.2-2'}} &euro;</td>
+      <td align="right">{{spesa.qta}}</td>
+      <td>{{spesa.descrizione}}</td>
+      <td>{{spesa.idAmbito}}</td>
+      <td>{{spesa.tags}}</td>
+    </tr>
+  </tbody>
+</table>
+
 <div *ngIf="selectedSpesa">
   <h2>
     Dettaglio "{{selectedSpesa.descrizione}}"

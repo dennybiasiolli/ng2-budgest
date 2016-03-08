@@ -2,7 +2,7 @@ import {Spesa} from './spesa';
 export var SPESE: Spesa[] = [
   {
     "id": 1,
-    "descrizione": "Spesa al supermercato",
+    "descrizione": "Spesa al supermercato, testo lungo più del normale per provare quanto allinea la tabella",
     "dataSpesa": new Date("2016-03-07"),
     "dataRiferimento": new Date("2016-03-07"),
     "importo": -49.17,
